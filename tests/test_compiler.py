@@ -11,9 +11,8 @@ from plcyo.lexer import lex
 
 HERE = Path(__file__).resolve().parent
 COMPILER = HERE.parent
-REPO = COMPILER.parent
 GATE_SOURCE = COMPILER / "samples" / "the-gate.plcyo"
-GATE_JSON = REPO / "the-gate.json"
+GATE_JSON = COMPILER / "the-gate.json"
 
 
 def pairs(errors):
