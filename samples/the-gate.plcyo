@@ -1,0 +1,23 @@
+title "The Gate"
+start gate
+speaker reaper "The Reaper" portrait "art/reaper.png"
+item key "Iron key"
+bool marked = false
+
+scene gate background "art/gate.png":
+reaper: "You came down. The gate has been shut a long time."
+if marked is true:
+"The mark is on you. The iron will answer."
+else:
+"There is no mark on you. The lock does not care."
+end
+choice "Take the iron key":
+give key
+set marked true
+to ending beyond
+end
+end
+
+ending beyond victory:
+"The key is yours. The gate opens onto a darker stair."
+end

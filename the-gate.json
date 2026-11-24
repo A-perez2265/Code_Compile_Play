@@ -1,0 +1,62 @@
+{
+  "title": "The Gate",
+  "start": "gate",
+  "speakers": [
+    {
+      "id": "reaper",
+      "name": "The Reaper",
+      "portrait": "art/reaper.png"
+    }
+  ],
+  "items": [
+    {
+      "id": "key",
+      "name": "Iron key"
+    }
+  ],
+  "variables": [
+    {
+      "id": "marked",
+      "type": "bool",
+      "value": false
+    }
+  ],
+  "scenes": [
+    {
+      "id": "gate",
+      "background": "art/gate.png",
+      "body": [
+        {
+          "speaker": "reaper",
+          "text": "You came down. The gate has been shut a long time."
+        },
+        {
+          "if": { "is": "marked", "value": true },
+          "then": [
+            { "text": "The mark is on you. The iron will answer." }
+          ],
+          "else": [
+            { "text": "There is no mark on you. The lock does not care." }
+          ]
+        }
+      ],
+      "choices": [
+        {
+          "text": "Take the iron key",
+          "changes": [
+            { "give": "key" },
+            { "set": "marked", "value": true }
+          ],
+          "to": { "ending": "beyond" }
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "beyond",
+      "outcome": "victory",
+      "text": "The key is yours. The gate opens onto a darker stair."
+    }
+  ]
+}
